@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulateur de Devis - Beyond</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(to right, #f9fafb, #f0fdf9);
+            color: #1a1a1a;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            padding: 24px 48px;
+            border-bottom: 1px solid #eaeaea;
+            background-color: #0f766e;
+        }
+
+        header img {
+            height: 80px;
+            animation: fadeInDown 1s ease-in-out;
+        }
+
+        main {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 64px 32px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            color: #0f766e;
+            margin-bottom: 2rem;
+        }
+
+        section {
+            margin-bottom: 3rem;
+            padding: 32px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+            background: #ffffff;
+        }
+
+        label {
+            display: block;
+            margin-top: 1rem;
+            font-weight: 600;
+        }
+
+        input[type="text"], select {
+            width: 100%;
+            padding: 14px;
+            margin-top: 8px;
+            border: 1px solid #d1d5db;
+            border-radius: 14px;
+            background: #f9fafb;
+        }
+
+        .service-card {
+            display: flex;
+            align-items: center;
+            margin-top: 16px;
+            gap: 16px;
+            padding: 16px;
+            border: 1px solid #e5e7eb;
+            border-radius: 14px;
+            transition: 0.4s ease;
+            perspective: 1000px;
+            background: white;
+        }
+
+        .service-card:hover {
+            transform: rotateY(3deg) scale(1.05);
+            background-color: #f0fdf9;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .service-card img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 16px;
+        }
+
+        .checkbox-modern {
+            appearance: none;
+            background-color: #fff;
+            margin: 0;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #0f766e;
+            border-radius: 6px;
+            display: grid;
+            place-content: center;
+        }
+
+        .checkbox-modern:checked::before {
+            content: "\2713";
+            color: white;
+            font-size: 16px;
+            background-color: #0f766e;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .button-modern {
+            display: inline-block;
+            padding: 14px 28px;
+            background: linear-gradient(135deg, #0f766e, #14b8a6);
+            color: white;
+            border: none;
+            border-radius: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            margin-right: 1rem;
+        }
+
+        .button-modern:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(20, 184, 166, 0.3);
+        }
+
+        #recapitulatif {
+            background: #ecfdf5;
+            padding: 28px;
+            border-radius: 16px;
+            margin-top: 3rem;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInDown {
+            0% { opacity: 0; transform: translateY(-10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <img src="/logo_dark.png" alt="Logo Beyond">
+</header>
+
+<main>
+    <h1>Simulateur de Devis</h1>
+
+    <section>
+        <label>Nom et Prénom</label>
+        <label for="clientName"></label><input type="text" id="clientName" placeholder="Ex: Marie Dubois" />
+
+        <label>Pays</label>
+        <label for="pays"></label><select id="pays">
+            <option value="fr">France</option>
+            <option value="ga">Gabon</option>
+            <option value="cm">Cameroun</option>
+            <option value="ma">Maroc</option>
+            <option value="ci">Côte d'Ivoire</option>
+            <option value="ca">Canada</option>
+            <option value="us">États-Unis</option>
+            <option value="uk">Royaume-Uni</option>
+            <option value="de">Allemagne</option>
+        </select>
+    </section>
+
+    <section>
+        <h2>Choisissez vos services</h2>
+
+        <div class="service-card">
+            <img src="/illustrations/site_web.jpg" alt="Création de site web" />
+            <label><input type="checkbox" class="service checkbox-modern" data-name="Création de site web" data-base="350"> Création de site web</label>
+        </div>
+
+        <div class="service-card">
+            <img src="/illustrations/design.jpg" alt="Design UX/UI" />
+            <label><input type="checkbox" class="service checkbox-modern" data-name="Design UX/UI" data-base="280"> Design UX/UI</label>
+        </div>
+
+        <div class="service-card">
+            <img src="/illustrations/graphisme.jpg" alt="Graphisme" />
+            <label><input type="checkbox" class="service checkbox-modern" data-name="Graphisme" data-base="210"> Graphisme</label>
+        </div>
+
+        <div class="service-card">
+            <img src="/illustrations/publicite.jpg" alt="Marketing Publicitaire" />
+            <label><input type="checkbox" class="service checkbox-modern" data-name="Marketing Publicitaire" data-base="180"> Marketing Publicitaire</label>
+        </div>
+    </section>
+
+    <section>
+        <button class="button-modern" onclick="genererRecapitulatif()">Voir le récapitulatif</button>
+        <button class="button-modern" onclick="telechargerPDF()">Télécharger le devis</button>
+        <button class="button-modern" onclick="window.location.href='/contact.html'">Contactez-nous</button>
+    </section>
+
+    <section id="recapitulatif" style="display: none">
+        <h2>Récapitulatif du devis</h2>
+        <p id="recap-text"></p>
+    </section>
+</main>
+
+<script>
+    function getDevise(pays) {
+        const afrique = ['ga', 'cm', 'ci', 'ma'];
+        return afrique.includes(pays) ? 'FCFA' : '€';
+    }
+
+    function getTauxConversion(pays) {
+        const afrique = ['ga', 'cm', 'ci', 'ma'];
+        return afrique.includes(pays) ? 655 : 1;
+    }
+
+    function genererRecapitulatif() {
+        const nom = document.getElementById('clientName').value;
+        const pays = document.getElementById('pays').value;
+        const devise = getDevise(pays);
+        const taux = getTauxConversion(pays);
+        const services = document.querySelectorAll('.service:checked');
+
+        let texte = `Nom du client : ${nom}\nPays : ${pays.toUpperCase()}\nServices sélectionnés :\n`;
+        let total = 0;
+
+        services.forEach(s => {
+            const base = parseInt(s.dataset.base);
+            const prix = base * taux;
+            texte += `- ${s.dataset.name} : ${prix.toLocaleString()} ${devise}\n`;
+            total += prix;
+        });
+
+        texte += `\nTotal : ${total.toLocaleString()} ${devise}`;
+        texte += `\n\nÉchéance mensuelle (sur 3 mois) : ${(total / 3).toLocaleString(undefined, {maximumFractionDigits: 2})} ${devise} / mois`;
+
+        document.getElementById('recap-text').textContent = texte;
+        document.getElementById('recapitulatif').style.display = 'block';
+    }
+
+    function telechargerPDF() {
+        const nom = document.getElementById('clientName').value || "client";
+        const recap = document.getElementById('recap-text').textContent;
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+        doc.setFontSize(12);
+        doc.text(recap, 10, 20);
+        doc.save(`devis_${nom.replace(/\s+/g, '_')}.pdf`);
+    }
+</script>
+</body>
+</html>

@@ -63,10 +63,15 @@ const config = {
         }
         ,
         {
-            titre: "Craph",
-            description: "Identité visuelle pour une clinique gabonaise",
+            titre: "Beyond 31",
+            description: "Identité visuelle pour notre site web ",
             categories: ["UI/UX", "web", "identité visuelle"],
             vignette: "/illustrations/craph.png",
+            images: [
+                "/images/beyond1.jpg",
+                "/images/beyond2.jpg",
+                "/images/beyond3.jpg"
+            ]
         },
         {
             titre: "Craph site web",
