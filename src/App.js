@@ -66,7 +66,7 @@ const config = {
             titre: "Beyond 31",
             description: "Identité visuelle pour notre site web ",
             categories: ["UI/UX", "web", "identité visuelle"],
-            vignette: "/illustrations/craph.png",
+            vignette: "/images/beyond3.jpg",
             images: [
                 "/images/beyond1.jpg",
                 "/images/beyond2.jpg",
