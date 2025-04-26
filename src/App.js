@@ -60,17 +60,22 @@ const config = {
             description: "Identité visuelle & Application mobile pour une startup gabonaise",
             categories: ["Branding", "UI/UX", "Développement"],
             vignette: "/illustrations/clandoga.jpg",
+            images: [
+                "/images/clando1.jpg",
+                "/images/clando2.jpg",
+                "/images/clando3.gif"
+            ]
         }
         ,
         {
             titre: "Beyond 31",
             description: "Identité visuelle pour notre site web ",
             categories: ["UI/UX", "web", "identité visuelle"],
-            vignette: "/images/beyond3.jpg",
+            vignette: "/images/beyond3.png",
             images: [
                 "/images/beyond1.jpg",
                 "/images/beyond2.jpg",
-                "/images/beyond3.jpg"
+                "/images/beyond3.png"
             ]
         },
         {
@@ -176,7 +181,7 @@ export default function Home() {
                 <section id="accueil" className="min-h-screen flex items-center relative bg-[#f5f0eb]" >
                     <section id="accueil" className="min-h-screen flex items-center relative">
                         {/* Nouveau - Icônes réseaux sociaux à droite */}
-                        <div className="fixed right-8 top-1/2 transform -translate-y-1/2 z-40 flex flex-col gap-6">
+                        <div className=" move left-8 top-1/2 transform -translate-y-1/2 z-40 flex flex-col gap-6">
                             {/* Icône LinkedIn */}
                             <motion.a
                                 href={config.reseaux.linkedin}
