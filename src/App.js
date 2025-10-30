@@ -93,7 +93,7 @@ const config = {
             titre: "SanamaRenov site web",
             description: "développement web pour une entreprise de renovation",
             categories: [ "web", "css", "html", "react" ],
-            vignette: "/illustrations/craph_site.jpg",
+            vignette: "/illustrations/sanama1.png",
             images: [
                 "/images/sanama1.png",
                 "/images/sanama2.png",
