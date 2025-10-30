@@ -81,12 +81,27 @@ const config = {
         {
             titre: "Craph site web",
             description: "développement web pour une clinique gabonaise",
-            categories: ["UI/UX", "web", "css", "html", "react" ],
+            categories: [ "web", "css", "html", "react" ],
             vignette: "/illustrations/craph_site.jpg",
             images: [
                 "/images/craph1.png",
                 "/images/craph2.png",
                 "/images/craph3.png"
+            ]
+        },
+        {
+            titre: "SanamaRenov site web",
+            description: "développement web pour une entreprise de renovation",
+            categories: [ "web", "css", "html", "react" ],
+            vignette: "/illustrations/craph_site.jpg",
+            images: [
+                "/images/sanama1.png",
+                "/images/sanama2.png",
+                "/images/sanama3.png",
+                "/images/sanama4.png",
+                "/images/sanama5.png",
+                "/images/sanama6.png",
+                "/images/sanama7.png"
             ]
         }
     ]
@@ -181,7 +196,7 @@ export default function Home() {
                 <section id="accueil" className="min-h-screen flex items-center relative bg-[#f5f0eb]" >
                     <section id="accueil" className="min-h-screen flex items-center relative">
                         {/* Nouveau - Icônes réseaux sociaux à droite */}
-                        <div className=" move left-8 top-1/2 transform -translate-y-1/2 z-40 flex flex-col gap-6">
+                        <div className=" right-4 top-1/2 transform -translate-y-1/2 z-40 flex flex-col gap-6">
                             {/* Icône LinkedIn */}
                             <motion.a
                                 href={config.reseaux.linkedin}
