@@ -361,9 +361,9 @@ function Footer({ darkMode, config }) {
                     <div className="flex flex-col md:flex-row justify-between items-center gap-4">
                         <p className="text-red-500 opacity-50 text-sm">© 2025 Beyond 31. Tous droits réservés.</p>
                         <div className="flex flex-wrap justify-center md:justify-end gap-4 text-sm">
-                            <a href="/politique-confidentialite.html" className="hover:underline text-red-500 opacity-50">Politique de confidentialité</a>
+                            <a href="/politique-de-confidentialite.html" className="hover:underline text-red-500 opacity-50">Politique de confidentialité</a>
                             <a href="/mentions-legales.html" className="hover:underline text-red-500 opacity-50">Mentions légales</a>
-                            <a href="/conditions-legales.html" className="hover:underline text-red-500 opacity-50">Conditions légales</a>
+                            <a href="/cgv.html" className="hover:underline text-red-500 opacity-50">Conditions légales</a>
                         </div>
                     </div>
                 </div>
