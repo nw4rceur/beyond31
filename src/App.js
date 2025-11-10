@@ -329,8 +329,7 @@ function ThemeToggle({ darkMode, setDarkMode }) {
 
 function Footer({ darkMode, config }) {
     const logos = [
-        '/logo1.png', '/logo2.png', '/logo3.png', '/logo4.png',
-        '/logo5.png', '/logo6.png', '/logo7.png', '/logo8.png'
+        'illustrations/diaspora_connect_2.png', 'images/clando1.jpg', 'illustrations/maindeLafemme.jpeg', 'illustrations/mukemuBaume.jpeg', 'illustrations/anime_guys.jpeg'
     ];
 
     return (
